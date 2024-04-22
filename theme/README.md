@@ -23,6 +23,9 @@ It also works very well with [Obsidian](http://obsidian.md/) as an authoring too
 
 ## 🚀 Getting Started
 
+## WIP
+- nvm use 14.16 (see .nvmrc)
+- npm i gatsby-cli@3 
 - Start a new Gatsby website (manually or using a starter like the [default starter](https://github.com/gatsbyjs/gatsby-starter-default))
 - Add the theme as dependency: `yarn add gatsby-theme-networked-thought`
 - Edit `gatsby-config.js` and add `gatsby-theme-networked-thought` as a plugin (see options documentation below). Also make sure `siteMetadata` has the following:

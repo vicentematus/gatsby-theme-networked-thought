@@ -24,10 +24,21 @@ function AnchorTag({ href, previews, ...restProps }: AnchorTagProps) {
   const previewsMapping = previews || {};
 
   if (!href.match(/^http/)) {
+    console.log("hice match");
     if (stacked) {
+      console.log("rest props es", { ...restProps });
+      const regex = /[^/]*$/;
+      const modifiedLink = href.replace(regex, "");
+
+      console.log({ href });
+      console.log({ modifiedLink });
+      console.log(restProps?.children);
+
       return (
         <Tippy content={previewsMapping[href.replace(/^\//, "")]}>
-          <LinkToStacked {...restProps} to={href} sx={{ variant: "links.internal" }} />
+          <LinkToStacked {...restProps} to={href} sx={{ variant: "links.internal" }}>
+            {restProps?.children} hola
+          </LinkToStacked>
         </Tippy>
       );
     }
@@ -36,9 +47,10 @@ function AnchorTag({ href, previews, ...restProps }: AnchorTagProps) {
 
   const externalVariant = `links.external-${colorMode}`;
   const tipContent = <TipContentWrapper>{href}</TipContentWrapper>;
+  console.log("estoy en una url");
 
   return (
-    <Tippy content={tipContent} placement="top">
+    <Tippy content={tipContent} placement="left">
       <Styled.a {...restProps} href={href} sx={{ variant: externalVariant }} />
     </Tippy>
   );

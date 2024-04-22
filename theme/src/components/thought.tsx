@@ -45,6 +45,7 @@ interface ThoughtProps {
 
 export default function Thought({ thought }: ThoughtProps) {
   const previews: Record<string, React.ReactNode> = {};
+  console.log({ thought });
   const outboundReferences = thought.outboundReferences || [];
   outboundReferences
     .filter((reference) => !!reference.thought.childMdx.excerpt)
@@ -55,6 +56,8 @@ export default function Thought({ thought }: ThoughtProps) {
   const AnchorTagWithPopups = (props: AnchorTagProps) => {
     return <mdxComponents.a previews={previews} {...props} />;
   };
+
+  console.log("me procese anchor tag");
   // TODO: add tooltip preview info
   const components = { ...mdxComponents, a: AnchorTagWithPopups };
 

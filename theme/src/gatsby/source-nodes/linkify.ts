@@ -11,8 +11,10 @@ function processRegExps(
   if (matches === null) {
     return content;
   }
+  console.log("estoy procesando");
 
   const { rootPath } = pluginOptions;
+  console.log("rootPath es ", { rootPath });
   let newContent = content;
   matches
     .filter((a, b) => matches.indexOf(a) === b)
@@ -42,6 +44,7 @@ export default function linkify(
 ): string {
   // Find matches for content between double brackets
   // e.g. [[Example]] -> Example
+  console.log("content es ", { content });
   const bracketRegexExclusive = /(?<=\[\[).*?(?=\]\])/g;
 
   // Find matches for content between double brackets including the brackets
